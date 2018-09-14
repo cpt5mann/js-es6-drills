@@ -6,7 +6,9 @@
  * @return {Number}
  * 
  */
-var stringCount;
+var stringCount = string => {
+return string.length;
+};
 
 /* #arrayLength
  *
@@ -15,7 +17,11 @@ var stringCount;
  * @param {Array}
  * @return {Number}
  */
-var arrayLength;
+
+var arrayLength = array => {
+  return array.length;
+}
+
 
 /* #countAll
  *
@@ -24,16 +30,29 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll= array => {
+return array.reduce((acc, curr) => {
+return acc + curr;
+});
 
-/* #countStrings
- *
- * Takes in an array of strings and returns an array of string lengths.
- *
- * @param {Array}
- * @return {Array}
- */
-var countStrings;
+}
+  
+  
+  
+
+//  #countStrings
+//  
+//  * Takes in an array of strings and returns an array of string lengths.
+//  *
+//  * @param {Array}
+//  * @return {Array}
+//  */
+ var countStrings = array => {
+   return array.map(iter =>{
+return iter.length;
+
+   })}
+
 
 /* #countAllStrings
  *
@@ -42,7 +61,18 @@ var countStrings;
  * @param {String}
  * @return {Number}
  */
-var countAllStrings;
+
+var countAllStrings = array => {
+  var indivlength = array.map((str) => {
+    return str.length;
+  });
+
+  return indivlength.reduce((accum, curr) =>{
+    return accum + curr;
+  });
+};
+
+
 
 /* #splitString
  *
@@ -51,7 +81,11 @@ var countAllStrings;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+
+var splitString = string => {
+  return string.split("");
+}
+
 
 /* #lengthOfLast
  *
@@ -60,7 +94,11 @@ var splitString;
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast = string => {
+var last = string.pop();
+return last.length;
+
+}
 
 /* #sumBelowTen
  *
@@ -69,7 +107,20 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
+var sumBelowTen = array => {
+var indivless= array.filter((lessthan) => {
+  return lessthan < 10;
+});
+return indivless.reduce((accum, curr) => {
+
+  return accum + curr;
+}
+
+)} 
+
+
+
+
 
 /* #moreThanTenLetters
  *
@@ -78,7 +129,14 @@ var sumBelowTen;
  * @param {String}
  * @return {Number}
  */
-var moreThanTenLetters;
+var moreThanTenLetters = string => {
+var indivmore = string.filter((morethan)=> {
+return morethan > 10;
+});
+return indivmore.length +1;
+
+
+}
 
 /* #multiplyAll
  *
@@ -87,7 +145,14 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+var multiplyAll = array => {
+return array.reduce((accum, curr) => {
+return accum*curr;
+}
+
+
+)
+};
 
 /* #sumAllPositive
  *
@@ -96,7 +161,15 @@ var multiplyAll;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = string => {
+var post= string.filter((positivecheck) => {
+return positivecheck > 0;
+});
+return post.reduce((accum, curr)=> {
+  return accum+curr;
+})
+
+}
 
 /* #stringCountBelowThree
  *
@@ -105,7 +178,13 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = array => {
+var small = array.filter((smallcheck)=>{
+return smallcheck.length < 4;
+});
+return small.length;
+
+};
 
 /* #doubleArray
  *
@@ -114,7 +193,12 @@ var stringCountBelowThree;
  * @param {Array} // [1,2,3]
  * @return {Array} // [2,4,6]
  */
-var doubleArray;
+var doubleArray = array => {
+return array.map(mult => {
+  return mult*2;
+}
+  
+  )};
 
 /* #countObjects
  *
@@ -124,19 +208,26 @@ var doubleArray;
  * @return {Number}
  */
 
+var countObjects= array => {
+return array.length;
+
+
+}
+
+
 module.exports = {
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
-  countAllStrings: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  doubleArray: null,
-  countObjects: null
+  stringCount: stringCount,
+  arrayLength: arrayLength,
+  countAll: countAll,
+  countStrings: countStrings,
+  countAllStrings: countAllStrings,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
+  moreThanTenLetters: moreThanTenLetters,
+  multiplyAll: multiplyAll,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  doubleArray: doubleArray,
+  countObjects: countObjects
 };
